@@ -37,7 +37,7 @@ export const useMutateNote = () => {
     },
     {
       onSuccess: (res) => {
-        //revalidateList()
+        revalidateList()
         // 個別のページも最新のHTMLで生成する為にrevalidateSingleを読み込んでる
         revalidateSingle(res[0].id)
         reset()

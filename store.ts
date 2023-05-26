@@ -1,4 +1,4 @@
-import create from 'zustand/react'
+import create from 'zustand'
 import { EditedNote, EditedComment } from './types/types'
 
 // stateのデータ型と更新用関数の型を指定
