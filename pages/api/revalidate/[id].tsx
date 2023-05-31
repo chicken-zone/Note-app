@@ -20,7 +20,7 @@ export default async function handler(
   } = req
   let revalidated = false
   try {
-    await res.revalidate(`/notes/${id}`)
+    await res.revalidate(`/note/${id}`)
     revalidated = true
   } catch (err) {
     console.log(err)

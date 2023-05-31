@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   // supabaseの認証関係の処理
   // ログインが成功した時の遷移先はnotes
   const { push, pathname } = useRouter()
+
   const validateSession = async () => {
     const user = supabase.auth.user()
     if (user && pathname === '/') {
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       await push('/')
     }
   }
+
   // userのセッションを監視する処理
   supabase.auth.onAuthStateChange((event, _) => {
     if (event === 'SIGNED_IN' && pathname === '/') {

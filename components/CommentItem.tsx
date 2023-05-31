@@ -6,6 +6,9 @@ import { useMutateComment } from '../hooks/useMutateComment'
 import { Spinner } from './Spinner'
 import { Comment } from '../types/types'
 
+// 表示したいコメントの内容をpropsで受け取る
+// React.FC<Omit<Comment, 'created_at' | 'note_id'>>  ＝＞　コメントのタイプからcreated,noteを除いたデータをpropsで受け取る
+
 export const CommentItem: React.FC<Omit<Comment, 'created_at' | 'note_id'>> = ({
   id,
   content,
@@ -23,6 +26,7 @@ export const CommentItem: React.FC<Omit<Comment, 'created_at' | 'note_id'>> = ({
   return (
     <li className="my-3">
       <span>{content}</span>
+      {/* LoginUserとコメントの表示しているuserIdが一致する場合のみ下記を表示 */}
       {userId === user_id && (
         <div className="float-right ml-20 flex">
           <PencilAltIcon
